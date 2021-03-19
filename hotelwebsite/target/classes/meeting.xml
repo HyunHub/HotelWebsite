@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace xml을 구별하기 위한 이름 -->
+<!-- resultMap는 table에 컬럼명과 class에 member변수명이 다를 때 mapping하는 용도 -->
+<mapper namespace="meetingns">
+
+	<select id="select" parameterType="integer" resultType="meeting">
+		select * from meeting where met_num=#{met_num}
+	</select>
+	<insert id="insert" parameterType="meeting">
+		insert into meeting_book values(#{met_num},#{member_id},#{mbk_title},#{mbk_date},#{mbk_sthour},#{mbk_edhour},#{mbk_seat},#{mbk_shape},#{mbk_etc})
+	</insert>
+	<select id="selct" parameterType="string" resultType="member">
+		select * from hotel_member where member_id=#{member_id}
+	</select>
+	<select id="selectmbk" parameterType="meeting_book" resultType="meeting_book">
+		select * from meeting_book where met_num=#{met_num} and mbk_date=#{mbk_date}
+	</select>
+	<select id="slcbk" parameterType="HashMap" resultType="meeting_book">
+		select mb.*, m.met_name mplace, h.member_name hname from hotel_member h, meeting_book mb, meeting m where mb.met_num=m.met_num and mb.member_id=h.member_id and mb.member_id=#{member_id} and mb.mbk_date=#{mbk_date}
+	</select>
+	<select id="slcwk" parameterType="HashMap" resultType="wedding_book">
+		select wb.*, w.wed_name wplace, h.member_name hname from hotel_member h, wedding_book wb, wedding w where wb.wed_num=w.wed_num and wb.member_id=h.member_id and wb.member_id=#{member_id} and wb.wbk_date=#{wbk_date}
+	</select>
+	<select id="slcrk" parameterType="HashMap" resultType="booking">
+		select rb.*, r.restaurant_name rplace, h.member_name hname from hotel_member h, booking rb, restaurant r where rb.restaurant_num=r.restaurant_num and rb.member_id=h.member_id and rb.member_id=#{member_id} and rb.booking_date=#{booking_date}
+	</select>
+	<select id="slcok" parameterType="HashMap" resultType="room_book">
+		select rb.*, hr.room_name rname, h.member_name hname from hotel_member h, room_book rb, hotel_room hr where rb.room_id=hr.room_id and rb.member_id=h.member_id and rb.member_id=#{member_id} and rb.rcheck_in=#{rcheck_in}
+	</select>
+	
+	<select id="list" parameterType="meeting_book" resultType="meeting_book">
+		select mb.*, m.met_name mplace, to_number(substr(mb.mbk_date, 1,4)) mbk_year, to_number(substr(mb.mbk_date, 6,2)) mbk_month, to_number(substr(mb.mbk_date, 9,2)) mbk_day from meeting_book mb, meeting m where mb.met_num=m.met_num order by mb.met_num desc
+	</select>
+	<select id="selectmk" parameterType="string" resultType="meeting_book">
+		select mb.*, m.met_name mplace, h.member_name hname from hotel_member h, meeting_book mb, meeting m where mb.met_num=m.met_num and mb.member_id=h.member_id and mb.member_id=#{member_id}
+	</select>
+	<select id="selectwk" parameterType="string" resultType="wedding_book">
+		select wb.*, w.wed_name wplace, h.member_name hname from hotel_member h, wedding_book wb, wedding w where wb.wed_num=w.wed_num and wb.member_id=h.member_id and wb.member_id=#{member_id}
+	</select>
+	<select id="selectrk" parameterType="string" resultType="booking">
+		select rb.*, r.restaurant_name rplace, h.member_name hname from hotel_member h, booking rb, restaurant r where rb.restaurant_num=r.restaurant_num and rb.member_id=h.member_id and rb.member_id=#{member_id}
+	</select>
+	<select id="selectrb" parameterType="string" resultType="room_book">
+		select rm.*, hr.room_name rname, h.member_name hname from hotel_member h, room_book rm, hotel_room hr where rm.room_id=hr.room_id and rm.member_id=h.member_id and rm.member_id=#{member_id}
+	</select>
+	<delete id="delete" parameterType="string">
+		delete from meeting_book where member_id=#{member_id}
+	</delete>
+</mapper>

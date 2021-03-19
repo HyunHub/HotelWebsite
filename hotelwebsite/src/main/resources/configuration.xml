@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="member" type="com.ch.hotel.model.Member" />
+		<typeAlias alias="board" type="com.ch.hotel.model.NoticeBoard" />
+		<typeAlias alias="meeting" type="com.ch.hotel.model.Meeting" />
+		<typeAlias alias="meeting_book" type="com.ch.hotel.model.Meeting_Book" />
+		<typeAlias alias="wedding" type="com.ch.hotel.model.Wedding" />
+		<typeAlias alias="wedding_book" type="com.ch.hotel.model.Wedding_Book" />
+		<typeAlias alias="booking" type="com.ch.hotel.model.Booking" />
+		<typeAlias alias="restaurant" type="com.ch.hotel.model.Restaurant" />
+		<typeAlias alias="room" type="com.ch.hotel.model.Room" />
+		<typeAlias alias="room_book" type="com.ch.hotel.model.Room_Book" />
+		<!-- <typeAlias alias="wedding" type="com.ch.hotel.model.DateData" /> -->
+	</typeAliases>
+	<mappers>
+		<mapper resource="member.xml" />
+		<mapper resource="board.xml" />
+		<mapper resource="meeting.xml" />
+		<mapper resource="wedding.xml" />
+		<mapper resource="restaurant.xml" />
+		<mapper resource="booking.xml" />
+		<mapper resource="room.xml" />
+	</mappers>
+</configuration>

@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+
+.table{
+	text-align : center;
+}
+th{
+	height : 40px;
+	background-color : #D8D8D8;
+}
+#item1{
+	width : 100px;
+	height : 40px;
+}
+#item2{
+	width : 300px;
+}
+#item3{
+	width : 200px;
+}
+#bd_title{
+	color : black;
+}
+.search-wrap{
+	font-size : 15px;
+}

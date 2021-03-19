@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace xml을 구별하기 위한 이름 -->
+<!-- resultMap는 table에 컬럼명과 class에 member변수명이 다를 때 mapping하는 용도 -->
+<mapper namespace="restns">
+ <insert id="restaurant_insert" parameterType="Restaurant">
+        INSERT INTO
+        Restaurant
+        (restaurant_num, restaurant_name, detail, hours, seats, restaurant_tel, restaurant_email, location)
+        VALUES(#{restaurant_num},#{restaurant_name},#{detail},#{hours},
+        ,#{seats},#{restaurant_tel},#{restaurant_email}, #{location})
+    </insert>
+    <select id="select" parameterType="int" resultType="Restaurant">
+        SELECT *
+        FROM Restaurant
+        WHERE
+        Restaurant_num=#{Restaurant_num}
+    </select>
+    <delete id="delete" parameterType="int">
+        DELETE
+        FROM
+        Restaurant
+        WHERE
+        Restaurant_num=#{Restaurant_num}
+    </delete>
+    <update id="edit" parameterType="int">
+        UPDATE Restaurant SET detail=#{detail},hours=#{hours},restaurant_tel=#{restaurant_tel}
+        restaurant_email=#{restaurant_email}
+        WHERE Restaurant_num=#{Restaurant_num}
+    </update>
+</mapper>

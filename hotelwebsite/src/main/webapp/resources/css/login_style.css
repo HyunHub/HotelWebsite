@@ -1,0 +1,45 @@
+@charset "UTF-8";
+.container{
+	background: #fff;
+	margin: 50px auto;
+	width : 800px;
+}
+.login-table{
+	width : 400px;
+}
+.login-table td{
+	height : 60px;
+}
+.login-table input{
+	width : 100%;
+	height : 40px;
+	border : none;
+	border-bottom : 1px solid #D8D8D8;
+	font-size : 15px;
+}
+input.btn[type="submit"] {
+	background: #D8D8D8;
+	border:none;
+	border-radius: 2px;
+	color: #fff;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing: 3px;
+	margin: 5px 0;
+	outline: medium none;
+	overflow: hidden;
+	padding: 10px;
+	text-transform: uppercase;
+	transition: all 0.15s ease-in-out 0s;
+	width: 400px;
+}
+.text-p{
+	font-size: 15px;
+	text-align: center;
+	margin: 10px 0;
+	width : 400px;
+}
+.text-p a{
+	color: #6E6E6E;
+}

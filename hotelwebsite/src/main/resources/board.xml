@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace xml을 구별하기 위한 이름 -->
+<!-- resultMap는 table에 컬럼명과 class에 member변수명이 다를 때 mapping하는 용도 -->
+<mapper namespace="boardns">
+
+	<select id="getTotal" parameterType="board" resultType="integer">
+		select count(*) from hotel_board
+			<where>
+			 	<if test="keyword!=null and keyword!=''">
+			 		<if test="search=='subcon'">
+			 			subject like '%'||#{keyword}||'%' or
+			 			content like '%'||#{keyword}||'%'
+			 		</if>
+			 		<if test="search!='subcon'">
+			 			${search} like '%'||#{keyword}||'%'
+			 		</if>			 		
+			 	</if>
+			 </where>
+	</select>
+	<select id="list" parameterType="board" resultType="board">
+		select * from (select a.*,rownum rn from (select * from
+			 hotel_board 
+			 <where>
+			 	<if test="keyword!=null and keyword!=''">
+			 		<if test="search=='subcon'">
+			 			subject like '%'||#{keyword}||'%' or
+			 			content like '%'||#{keyword}||'%'
+			 		</if>
+			 		<if test="search!='subcon'">
+			 			${search} like '%'||#{keyword}||'%'
+			 		</if>			 		
+			 	</if>
+			 </where>			 
+			 order by bd_num desc) a)
+			 	where rn between #{startRow} and #{endRow} 
+	</select>
+	<update id="updateReadCount" parameterType="integer">
+		update hotel_board set bd_count=bd_count+1 where bd_num=#{bd_num}
+	</update>
+	<select id="select" parameterType="integer" resultType="board">
+		select * from hotel_board where bd_num=#{bd_num}
+	</select>
+	<update id="update" parameterType="board">
+		update hotel_board set bd_title=#{bd_title}, bd_content=#{bd_content} where bd_num=#{bd_num}
+	</update>
+	<select id="maxNum" resultType="integer">
+		select nvl(max(bd_num), 0) + 1 from hotel_board
+	</select>
+	<insert id="insert" parameterType="board">
+		insert into hotel_board values(#{bd_num},#{member_id},#{bd_title},#{bd_content},sysdate,0,'n')
+	</insert>
+	<update id="delete" parameterType="integer">
+		update hotel_board set bd_del='y' where bd_num=#{bd_num}
+	</update>
+</mapper>

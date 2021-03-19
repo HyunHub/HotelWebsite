@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace xml을 구별하기 위한 이름 -->
+<!-- resultMap는 table에 컬럼명과 class에 member변수명이 다를 때 mapping하는 용도 -->
+<mapper namespace="memberns">
+	<select id="select" parameterType="string" resultType="member">
+		select * from hotel_member where member_id=#{member_id}
+	</select>
+	<update id="update" parameterType="member">
+		update hotel_member set member_pw=#{member_pw}, member_email=#{member_email}, member_tel=#{member_tel}, member_addr=#{member_addr} 
+		where member_id=#{member_id}
+	</update>
+	<insert id="insert" parameterType="member">
+		insert into hotel_member values(#{member_id},#{member_pw},#{member_name},#{member_tel},#{member_addr},#{member_email},sysdate,'n')
+	</insert>
+	<update id="delete" parameterType="string">
+		update hotel_member set member_del='y' where member_id=#{member_id}
+	</update>
+	<select id="list" parameterType="member" resultType="member">
+		select * from hotel_member order by member_date desc
+	</select>
+</mapper>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- resultMap은 table에 컬럼명과 class에 member변수명이 다를 때 mapping하는 용도 -->
+<mapper namespace="roomns">
+<!-- 	<resultMap type="room" id="roomResult">
+		<result property="room_id" column="room_id"/>
+		<result property="room_name" column="room_name"/>
+		<result property="type" column="type"/>
+		<result property="price" column="price"/>
+		<result property="image" column="image"/>
+		<result property="content" column="content"/>
+	</resultMap> -->
+	<select id="select" parameterType="integer" resultType="room">
+		select * from hotel_room where room_id=#{room_id}
+	</select>
+	<select id="selct" parameterType="string" resultType="member">
+		select * from hotel_member where member_id=#{member_id}
+	</select>
+	<insert id="insert" parameterType="room_book">
+		insert into room_book values(#{room_id},#{member_id},#{rcheck_in},#{rcheck_out},#{rpeople},#{rbedtype},#{rservice},#{retc})
+	</insert>
+	<select id="selectrm" parameterType="room_book" resultType="room_book">
+		select * from room_book where room_id=#{room_id} and rcheck_in=#{rcheck_in}
+	</select>
+	<select id="list" parameterType="room_book" resultType="room_book">
+		select rb.*, hr.room_name rname, to_number(substr(rb.rcheck_in, 1, 4)) rm_year, to_number(substr(rb.rcheck_in, 6,2)) rm_month, to_number(substr(rb.rcheck_in, 9,2)) rm_day from room_book rb, hotel_room hr where rb.room_id=hr.room_id
+	</select>
+	<delete id="delete" parameterType="string">
+		delete from room_book where member_id=#{member_id}
+	</delete>
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace xml을 구별하기 위한 이름 -->
+<!-- resultMap는 table에 컬럼명과 class에 member변수명이 다를 때 mapping하는 용도 -->
+<mapper namespace="bookns">
+    <insert id="booking" parameterType="Booking">
+        INSERT INTO
+        booking
+        (member_id, restaurant_num, booking_name, booking_date, booking_hours, guests, request)
+        VALUES(#{member_id},#{restaurant_num},#{booking_name},#{booking_date},#{booking_hours},#{guests},#{request})
+    </insert>
+    <select id="select" parameterType="string" resultType="Booking">
+        SELECT *
+        FROM booking
+        WHERE
+        member_id=#{member_id}
+    </select>
+    <delete id="delete" parameterType="string">
+        DELETE
+        FROM
+        booking
+        WHERE
+        member_id=#{member_id}
+    </delete>
+    <select id="list" parameterType="booking" resultType="booking">
+    	select rb.*, r.restaurant_name rplace, to_number(substr(rb.booking_date, 1, 4)) rbk_year, to_number(substr(rb.booking_date, 6, 2)) rbk_month, to_number(substr(rb.booking_date, 9, 2)) rbk_day from booking rb, restaurant r where rb.restaurant_num=r.restaurant_num order by rb.restaurant_num desc
+	</select>
+</mapper>

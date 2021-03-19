@@ -1,0 +1,52 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
+	body{
+		/* background-color : #0B0B3B; */
+		/* font-family: 'Playfair Display', serif; */
+		font-family: 'Dosis', sans-serif;
+		font-size : 15px;
+	}
+	.info{
+		width : 100%;
+    	height : 30px;
+    	margin : 0 auto;
+	}
+	.info-item{
+		float : right;
+		margin-top : 15px;
+	}
+	.info-btn{
+		border : none;
+		background-color : #FFFFFF;
+		margin-right : 20px;
+		text-align : center;
+		font-size : 17px;
+	}
+	.nav-item{
+		/* background-color :  #0B0B3B; */
+		/* color : #0B0B3B; */
+	}
+	.page-header{
+		margin-top : 40px;
+		border : none;
+	}
+	.nav-link, .nav-link, .dropdown-item{
+		font-size : 20px;
+	}
+	li{
+		margin-right : 20px;
+	}
+	.header-title{
+		margin-left : 30px;
+		margin-right : 30px;
+	}
+	.dropdown-item{
+    	text-align : center;
+    	font-size : 20px;
+		/* background-color :  #0B0B3B; */
+		/* color : #0B0B3B; */
+    }
+    .nav-link{
+		color : #000000;
+    }
