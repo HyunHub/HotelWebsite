@@ -8,5 +8,7 @@
 3. You can view reservation information on MyPage tap
 4. You can cancle the reservation
 5. You can check our new news on Notice tap
+
 -- We also provide the wedding hall, the restaurant and the meeting room
 -- You can book those services the same way as room reservation.
+
