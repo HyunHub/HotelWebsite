@@ -9,7 +9,20 @@
 4. You can cancle the reservation
 5. You can check our new news on Notice tap
 
--- We also provide the wedding hall, the restaurant and the meeting room
+-- We also provide the wedding hall, the meeting room and restaurants
 
 -- You can book those services the same way as room reservation.
+
+
+## Development Environment
+* JAVA
+* Spring
+* JSP
+* ORACLE DATABASE
+* WEB SERVER TOMCAT
+* JQUERY
+* HTML CSS XML JAVASCRIPT
+
+
+
 
