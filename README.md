@@ -30,6 +30,8 @@
 ![hotelmain](https://user-images.githubusercontent.com/71003577/111861956-62768900-8995-11eb-86ab-ca5b1222c3eb.png)
 ![roommain](https://user-images.githubusercontent.com/71003577/111861959-673b3d00-8995-11eb-80ea-721c149868f8.png)
 ![room1](https://user-images.githubusercontent.com/71003577/111862072-27288a00-8996-11eb-9f50-43f758f39574.PNG)
+![room2](https://user-images.githubusercontent.com/71003577/111862440-b8006500-8998-11eb-83b8-28dfca1634d5.PNG)
+![room3](https://user-images.githubusercontent.com/71003577/111862443-b9ca2880-8998-11eb-9b4b-c7ef5df2ac8c.PNG)
 ![restmain](https://user-images.githubusercontent.com/71003577/111861962-699d9700-8995-11eb-824d-67935768393e.PNG)
 ![rest1](https://user-images.githubusercontent.com/71003577/111861963-6bfff100-8995-11eb-9c37-a6c2b45f323e.PNG)
 ![rest2](https://user-images.githubusercontent.com/71003577/111862170-ed0bb800-8996-11eb-881e-8f04f6313d6d.PNG)
