@@ -1,6 +1,5 @@
 # HotelWebsite
 ## Hotel Reservation Website - Spring Project
-
 ## How To Use
 1. You should sign up & log in our website
 2. Choose the room that you want to stay and fill in the information
