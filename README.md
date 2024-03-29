@@ -4,7 +4,7 @@
 1. You should sign up & log in our website
 2. Choose the room that you want to stay and fill in the information
 3. View reservation information on MyPage tap
-4. Cancle the reservation
+4. Cancel the reservation
 5. Check our new news on Notice tap
 
 -- We also provide the wedding hall, the meeting room and the restaurants
